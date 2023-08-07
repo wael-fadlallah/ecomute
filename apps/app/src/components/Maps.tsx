@@ -15,8 +15,8 @@ function Maps() {
           alignItems: 'center',
         }}
         initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: 25.187655,
+          longitude: 55.264528,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
