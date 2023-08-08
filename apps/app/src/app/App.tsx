@@ -5,15 +5,16 @@ import {
   StyleSheet,
 } from 'react-native';
 import Map from '../components/Maps';
+import { Button } from 'react-native-paper';
+import SearchForm from '../components/SearchForm';
 
 export const App = () => {
 
   return (
-    <>
-      <SafeAreaView>
+    <SafeAreaView>
         <Map />
+        <SearchForm />
       </SafeAreaView>
-    </>
   );
 };
 const styles = StyleSheet.create({});
