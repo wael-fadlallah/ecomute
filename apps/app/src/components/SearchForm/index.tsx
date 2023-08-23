@@ -8,15 +8,13 @@ function SearchForm() {
       style={{ margin: 10, position: 'absolute', top: 0, left: 0, right: 0 }}
     >
       <TextInput
-        label="Search"
-        placeholder="Home Address"
+        label="Home Address"
         style={{ borderTopEndRadius: 20, borderTopStartRadius: 20 }}
         underlineColor='#808080'
         activeUnderlineColor='#808080'
       />
       <TextInput
-        label="Search"
-        placeholder="Office Address"
+        label="Office Address"
         style={{
           borderTopEndRadius: 0,
           borderTopStartRadius: 0,
