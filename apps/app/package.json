@@ -16,6 +16,10 @@
     "@nx/vite": "*",
     "vite-plugin-dts": "*",
     "react-native-maps": "*",
-    "react-native-paper": "*"
+    "react-native-paper": "*",
+    "@tamagui/shorthands": "*",
+    "@tamagui/themes": "*",
+    "tamagui": "*",
+    "react-native-safe-area-context": "*"
   }
 }
