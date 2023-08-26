@@ -1,20 +1,14 @@
-/* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-} from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import Map from '../components/Maps';
-import { Button } from 'react-native-paper';
 import SearchForm from '../components/SearchForm';
 
 export const App = () => {
-
   return (
     <SafeAreaView>
-        <Map />
-        <SearchForm />
-      </SafeAreaView>
+      <Map />
+      <SearchForm />
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({});
