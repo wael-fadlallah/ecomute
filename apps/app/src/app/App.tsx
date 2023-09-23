@@ -1,18 +1,15 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Map from '../components/Maps';
 import SearchForm from '../components/SearchForm';
-import { TamaguiProvider } from 'tamagui';
-import config from '../../tamagui.config';
+import { View } from 'tamagui';
 
 export const App = () => {
   return (
-    <TamaguiProvider config={config}>
-      <SafeAreaView>
-        <Map />
-        <SearchForm />
-      </SafeAreaView>
-    </TamaguiProvider>
+    <View>
+      <Map />
+      <SearchForm />
+    </View>
   );
 };
 const styles = StyleSheet.create({});

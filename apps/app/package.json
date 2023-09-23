@@ -20,6 +20,8 @@
     "@tamagui/shorthands": "*",
     "@tamagui/themes": "*",
     "tamagui": "*",
-    "react-native-safe-area-context": "*"
+    "react-native-safe-area-context": "*",
+    "react-native-google-places-autocomplete": "*",
+    "react-native-config": "*"
   }
 }
