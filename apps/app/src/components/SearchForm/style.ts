@@ -5,6 +5,7 @@ export const formInputStyle = {
     backgroundColor: 'white',
     padding: 20,
     position: 'relative',
+    width: '80%',
   },
   listView: {
     backgroundColor: 'white',
@@ -24,6 +25,20 @@ export const formInputStyle = {
   },
 };
 export default StyleSheet.create({
-  fromSearchBox: {position: 'relative', zIndex: 1000},
-  ToSearchBox: {position: 'relative', zIndex: 1},
+  fromSearchBox: {
+    backgroundColor: 'white',
+    position: 'relative',
+    zIndex: 1000,
+    borderBottomWidth: 1,
+    borderBottomColor: '#D7D7D7',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  ToSearchBox: {
+    backgroundColor: 'white',
+    position: 'relative',
+    zIndex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
 });
