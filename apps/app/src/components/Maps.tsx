@@ -1,12 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { Animated } from 'react-native';
 import MapView, { MapMarker, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
-import Icon from 'react-native-vector-icons/Octicons';
+import MapViewDirections from 'react-native-maps-directions';
 import { CommuteRoute } from '../app/App';
 import style from './style';
+import Config from 'react-native-config';
+import { getIconAsImage as icon } from '../assets/icons';
 
 function Maps(props) {
-  const markerRef = useRef<MapMarker | Animated.LegacyRef<MapMarker>>();
+  const fromMarkerRef = useRef<MapMarker | Animated.LegacyRef<MapMarker>>();
   const map = useRef<MapView>();
 
   const { to, from }: CommuteRoute = props.route;
@@ -15,14 +17,21 @@ function Maps(props) {
       return;
     }
     if (map) {
-      map.current.animateCamera({
-        center: {
-          latitude: from.coordinate.lat,
-          longitude: from.coordinate.lng,
-        },
+      map.current.fitToSuppliedMarkers(['from', 'to'], {
+        edgePadding: { top: 80, right: 80, bottom: 80, left: 80 },
       });
     }
   }, [to, from]);
+
+  const originLocation = {
+    latitude: from?.coordinate?.lat ?? 25.187655,
+    longitude: from?.coordinate?.lng ?? 55.264528,
+  };
+
+  const destinationLocation = {
+    latitude: to?.coordinate?.lat ?? 25.187655,
+    longitude: to?.coordinate?.lng ?? 55.264528,
+  };
 
   return (
     <MapView
@@ -33,28 +42,31 @@ function Maps(props) {
     >
       {from && (
         <Marker.Animated
+          identifier={'from'}
           ref={(marker) => {
-            markerRef.current = marker;
+            fromMarkerRef.current = marker;
           }}
-          coordinate={{
-            latitude: from?.coordinate?.lat ?? 25.187655,
-            longitude: from?.coordinate?.lng ?? 55.264528,
-          }}
+          coordinate={originLocation}
           tracksViewChanges={true}
-          icon={Icon.getImageSourceSync('dot', 50, 'blue')}
+          icon={icon({ type: 'warehouse', size: 30, color: 'blue', iconFamily: 'FontAwesome5' })}
         />
       )}
 
       {to && (
         <Marker.Animated
-          coordinate={{
-            latitude: to?.coordinate?.lat ?? 25.187655,
-            longitude: to?.coordinate?.lng ?? 55.264528,
-          }}
+          identifier={'to'}
+          coordinate={destinationLocation}
           tracksViewChanges={true}
-          icon={Icon.getImageSourceSync('location', 50, 'blue')}
         />
       )}
+      <MapViewDirections
+        origin={originLocation}
+        destination={destinationLocation}
+        apikey={Config.GOOGLE_MAPS_API_KEY}
+        strokeWidth={10}
+        strokeColor="hotpink"
+        lineCap={'butt'}
+      />
     </MapView>
   );
 }
@@ -64,5 +76,5 @@ const initialRegion = {
   longitude: 55.264528,
   latitudeDelta: 0.0922,
   longitudeDelta: 0.0421,
-}
+};
 export default Maps;

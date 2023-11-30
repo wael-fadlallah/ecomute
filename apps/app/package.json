@@ -23,6 +23,7 @@
     "react-native-safe-area-context": "*",
     "react-native-google-places-autocomplete": "*",
     "react-native-config": "*",
-    "react-native-vector-icons": "*"
+    "react-native-vector-icons": "*",
+    "react-native-maps-directions": "*"
   }
 }

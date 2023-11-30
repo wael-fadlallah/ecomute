@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import styles, { formInputStyle } from './style';
 import Config from 'react-native-config'
-import Icon from 'react-native-vector-icons/Octicons';
 import {CommuteRoute} from '../../app/App';
+import {getIcon as Icon} from '../../assets/icons'
 
 const autocompleteConfig = {
   key: Config.GOOGLE_MAPS_API_KEY,
@@ -42,7 +42,7 @@ const SearchForm = ({onFormChange}) => {
           enablePoweredByContainer={false}
           styles={formInputStyle}
         />
-        <InputIcon type='dot' />
+        <Icon type='dot' />
       </View>
       <View style={styles.ToSearchBox}>
         <GooglePlacesAutocomplete
@@ -54,18 +54,10 @@ const SearchForm = ({onFormChange}) => {
           enablePoweredByContainer={false}
           styles={formInputStyle}
         />
-        <InputIcon type='location' />
+        <Icon type='location' />
       </View>
     </View>
   );
 }
-
-const InputIcon = (props) => {
-  const {type} = props;
-
-  return <View style={{justifyContent: 'center'}}>
-    <Icon name={type} size={30} color='blue'/>
-  </View>
-};
 
 export default SearchForm;
